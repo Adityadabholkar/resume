@@ -27,16 +27,21 @@
     }
 
     .intro-section {
-     position: relative;
-  height: 100vh;
-  background: url('images/aditya.jpg') no-repeat center center;
+        position: relative;
+  height: 90vh;
   background-size: cover;
-  background-position: 90% 10%;
-  text-align: right;
+background-position: center;
+
+background-image: url('images/aditya.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end; /* Changed from 'end' to 'flex-end' */
+  align-items: center;
   font-family: 'Times New Roman', Times, serif;
       
     }
@@ -140,7 +145,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Welcome</a>
+      <a class="navbar-brand" href="#">Aditya Dabholkar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -172,15 +177,13 @@
       </div>
     </div>
   </nav>
-  <div id="intro" class="container-fluid intro-section mt-10">
-    <div class="col-md-6">
-      <div class="col-lg-12">
-        <h2>Hey, I'm </h2>
-        <h2>Aditya Dabholkar</h2>
-        
-      </div>
-    </div>
+  <div class="intro-content">
+    <img src="images/aditya.jpg" class="img-fluid" alt="Responsive Image">
+    <h2>Hey, I'm</h2>
+    <h2>Aditya Dabholkar</h2>
   </div>
+  
+  
   <div id="about" class="container about-section mt-5">
     <h1>About</h1>
     <p>I am a self-driven individual with a genuine enthusiasm for enhancing my technical skills and
@@ -396,7 +399,7 @@
         </div>
       </div>
       <div class="col-md-12 text-center mt-4">
-        <a href="Aditya Dabholkar Resume.pdf" class="btn btn-dark" target="_blank" download>Download CV</a>
+        <a href="media/Aditya Dabholkar Resume.pdf" class="btn btn-dark" target="_blank" download>Download CV</a>
       </div>
     </div>
   </div>
