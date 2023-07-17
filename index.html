@@ -26,7 +26,7 @@
       margin-left: auto;
     }
 
-      .image-container {
+       .image-container {
   position: relative;
   display: inline-block;
 }
@@ -43,18 +43,31 @@
   box-sizing: border-box;
 }
 
-.overlay h2{
+.overlay h2 {
   margin: 0;
   text-align: right;
-margin-top: 500px;
-font-family: 'Times New Roman', Times, serif;
-
+  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 50%;
+  right: 30px; /* Adjust as needed */
+  transform: translateY(-50%);
+  white-space: nowrap; /* Prevents text from wrapping */
+  font-size: 34px; /* Adjust as needed */
 }
 
 /* Additional styling if needed */
 .image-container img {
   width: 100%;
   height: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 767px) {
+  .overlay h2 {
+    font-size: 16px;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+  }
 }
 
     
@@ -184,7 +197,7 @@ font-family: 'Times New Roman', Times, serif;
       </div>
     </div>
   </nav>
- <div class="image-container">
+<div class="image-container">
     <img src="adi.jpeg" alt="Your Image">
     <div class="overlay">
       <h2>Hey, I'm Aditya Dabholkar</h2>
