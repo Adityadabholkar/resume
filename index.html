@@ -161,20 +161,63 @@
       color: black !important;
     }
    .certification-btn-container {
-      display: flex;
-      flex-wrap: wrap;
-    }
+  display: flex;
+  flex-wrap: wrap;
+}
 
-    .certification-btn-container .btn {
-      flex: 1;
-      margin: 20px;
-    }
+.certification-btn-container .btn {
+  flex: 1;
+  margin: 20px;
+}
 
-    .certifications-section{
-      text-align: center;
-      padding-top: 70px;
-      font-family: 'Times New Roman', Times, serif;
-    }
+.certifications-section {
+  padding-top: 70px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Added responsive CSS for the Bootstrap Modal */
+@media (max-width: 767.98px) {
+  .modal-dialog-centered {
+    min-width: 90%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .modal-dialog-centered {
+    min-width: 70%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .modal-dialog-centered {
+    min-width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-dialog-centered {
+    min-width: 40%;
+  }
+}
+
+/* Responsive CSS for the PDF viewer iframe */
+#iframe-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (height/width) */
+  height: 0;
+  overflow: hidden;
+}
+
+#iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
   </style>
 </head>
 
@@ -391,25 +434,20 @@ Designed and developed user-friendly web pages using HTML, CSS, and Bootstrap 5 
       </div>
   </div>
 
+ 
+
   <div id="certifications" class="container certifications-section mt-5">
     <h1>Certifications</h1>
     <div class="certification-btn-container">
-      <button class="btn btn-outline-secondary view-pdf"
-        data-pdf="Web development.pdf">Introduction to Web development with HTMl, CSS and
-        JavaScript. IBM January 2023</button>
-      <button class="btn btn-outline-secondary view-pdf"
-        data-pdf="Introduction to cloud computing.pdf">Introduction to Cloud Computing. IBM January 2023</button>
-      <button class="btn btn-outline-secondary view-pdf"
-        data-pdf="java_basic certificate.pdf">Java Basic Certificate Hacker Rank August 2020</button>
-      <button class="btn btn-outline-secondary view-pdf"
-        data-pdf="tcs certi.pdf">Career Edge - Knockdown the Lockdown online course
-        offered by TCS iON May 2020</button>
+      <button class="btn btn-outline-secondary view-pdf" data-pdf="Web development.pdf">Introduction to Web development with HTMl, CSS and JavaScript. IBM January 2023</button>
+      <button class="btn btn-outline-secondary view-pdf" data-pdf="Introduction to cloud computing.pdf">Introduction to Cloud Computing. IBM January 2023</button>
+      <button class="btn btn-outline-secondary view-pdf" data-pdf="java_basic certificate.pdf">Java Basic Certificate Hacker Rank August 2020</button>
+      <button class="btn btn-outline-secondary view-pdf" data-pdf="tcs certi.pdf">Career Edge - Knockdown the Lockdown online course offered by TCS iON May 2020</button>
     </div>
   </div>
-
+  
   <!-- Bootstrap Modal -->
-  <div class="modal fade" id="pdfViewerModal" tabindex="-1" role="dialog" aria-labelledby="pdfViewerModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="pdfViewerModal" tabindex="-1" role="dialog" aria-labelledby="pdfViewerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -417,7 +455,9 @@ Designed and developed user-friendly web pages using HTML, CSS, and Bootstrap 5 
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <iframe id="pdfViewer" src="" style="width: 100%; height: 80vh; border: none;"></iframe>
+          <div id="iframe-container" class="embed-responsive embed-responsive-16by9">
+            <iframe id="pdfViewer" class="embed-responsive-item" src="" style="border: none;"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -471,7 +511,9 @@ Designed and developed user-friendly web pages using HTML, CSS, and Bootstrap 5 
       <span class="text-muted">&copy; 2023 Aditya Dabholkar. All rights reserved.</span>
     </div>
   </footer>
-   <script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const viewPdfButtons = document.querySelectorAll('.view-pdf');
 
