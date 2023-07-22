@@ -160,6 +160,20 @@
     .black-link {
       color: black !important;
     }
+   .certification-btn-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .certification-btn-container .btn {
+      flex: 1;
+      margin: 20px;
+    }
+
+    .certifications-section{
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+    }
   </style>
 </head>
 
@@ -186,10 +200,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#skills">Skills</a>
           </li>
-        <!--  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="#certifications">Certifications</a>
           </li>
-          <li class="nav-item">
+         <!-- <li class="nav-item">
             <a class="nav-link" href="#portfolio">Portfolio</a>
           </li>-->
           <li class="nav-item">
@@ -376,12 +390,39 @@ Designed and developed user-friendly web pages using HTML, CSS, and Bootstrap 5 
       </div>
   </div>
 
-  <!-- <div id="certifications" class="container mt-5">
+  <div id="certifications" class="container certifications-section mt-5">
     <h1>Certifications</h1>
-    <p>Insert your certifications content here.</p>
+    <div class="certification-btn-container">
+      <button class="btn btn-outline-secondary view-pdf"
+        data-pdf="Web development.pdf">Introduction to Web development with HTMl, CSS and
+        JavaScript. IBM January 2023</button>
+      <button class="btn btn-outline-secondary view-pdf"
+        data-pdf="Introduction to cloud computing.pdf">Introduction to Cloud Computing. IBM January 2023</button>
+      <button class="btn btn-outline-secondary view-pdf"
+        data-pdf="java_basic certificate.pdf">Java Basic Certificate Hacker Rank August 2020</button>
+      <button class="btn btn-outline-secondary view-pdf"
+        data-pdf="tcs certi.pdf">Career Edge - Knockdown the Lockdown online course
+        offered by TCS iON May 2020</button>
+    </div>
   </div>
 
- <div id="portfolio" class="container mt-5">
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="pdfViewerModal" tabindex="-1" role="dialog" aria-labelledby="pdfViewerModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pdfViewerModalLabel">PDF Viewer</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <iframe id="pdfViewer" src="" style="width: 100%; height: 80vh; border: none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div id="portfolio" class="container mt-5">
     <h2>Portfolio</h2>
     <p>Insert your portfolio content here.</p>
   </div>
@@ -429,7 +470,46 @@ Designed and developed user-friendly web pages using HTML, CSS, and Bootstrap 5 
       <span class="text-muted">&copy; 2023 Aditya Dabholkar. All rights reserved.</span>
     </div>
   </footer>
-  
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const viewPdfButtons = document.querySelectorAll('.view-pdf');
+
+      viewPdfButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const pdfUrl = this.getAttribute('data-pdf');
+          openPDFViewer(pdfUrl);
+        });
+      });
+
+      const pdfViewerModal = new bootstrap.Modal(document.getElementById('pdfViewerModal'), {
+        backdrop: 'static',
+        keyboard: false
+      });
+
+      pdfViewerModal._element.addEventListener('hidden.bs.modal', function () {
+        closePDFViewer();
+      });
+    });
+
+    function openPDFViewer(url) {
+      const pdfViewerModal = new bootstrap.Modal(document.getElementById('pdfViewerModal'), {
+        backdrop: 'static',
+        keyboard: false
+      });
+      const pdfViewer = document.getElementById('pdfViewer');
+
+      pdfViewer.src = url;
+      pdfViewerModal.show();
+    }
+
+    function closePDFViewer() {
+      const pdfViewerModal = new bootstrap.Modal(document.getElementById('pdfViewerModal'));
+      const pdfViewer = document.getElementById('pdfViewer');
+
+      pdfViewer.src = '';
+      pdfViewerModal.hide();
+    }
+  </script>
 </body>
 
 </html>
